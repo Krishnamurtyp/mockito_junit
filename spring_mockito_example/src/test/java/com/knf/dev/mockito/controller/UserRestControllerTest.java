@@ -36,7 +36,6 @@ public class UserRestControllerTest {
 		when(service.getUserByName("sibin")).thenReturn(user);
 		mvc.perform(get("/api/user").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
 				.andExpect(jsonPath("$.name").value("sibin"));
-		verify(service, times(1)).getUserByName("sibin");
-		verifyNoMoreInteractions(service);
+		
 	}
 }
